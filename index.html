@@ -4,190 +4,836 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clínica Especializada Gabriel Arcángel - Tratamiento Integral</title>
+    <title>Clínica Especializada Gabriel Arcángel - Tu Nueva Vida Comienza Aquí</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Refined Purple & White Theme */
+        :root {
+            --primary: #6a1b9a;
+            /* Deep Purple */
+            --primary-light: #9c4dcc;
+            --primary-dark: #38006b;
+            --secondary: #ab47bc;
+            /* Lighter Purple */
+            --accent: #ffd740;
+            /* Amber */
+            --white: #ffffff;
+            --light-bg: #f3e5f5;
+            /* Very Light Purple Background */
+            --text-dark: #333333;
+            --text-light: #f5f5f5;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #fbf9ff;
+            /* Very clean medical white/purple */
+            color: var(--text-dark);
+            overflow-x: hidden;
+            border: 10px solid var(--primary);
+            /* Contorno morado solicitado */
+            box-sizing: border-box;
+            min-height: 100vh;
+        }
+
+        /* Floating Interactive Background - Subtle for Professional Look */
+        .interactive-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .bg-shape {
+            position: absolute;
+            filter: blur(100px);
+            opacity: 0.25;
+            /* Very subtle for a serious tone */
+            border-radius: 50%;
+            animation: floatShape 20s infinite ease-in-out alternate;
+        }
+
+        .shape-1 {
+            width: 450px;
+            height: 450px;
+            background: var(--primary-light);
+            top: -10%;
+            left: -10%;
+        }
+
+        .shape-2 {
+            width: 550px;
+            height: 550px;
+            background: rgba(206, 147, 216, 0.4);
+            /* Pastel Purple */
+            bottom: -15%;
+            right: -10%;
+            animation-delay: -5s;
+        }
+
+        .shape-3 {
+            width: 350px;
+            height: 350px;
+            background: rgba(255, 255, 255, 0.8);
+            /* White Glow */
+            top: 40%;
+            left: 35%;
+            animation-delay: -10s;
+        }
+
+        @keyframes floatShape {
+            0% {
+                transform: translate(0, 0) scale(1) rotate(0deg);
+            }
+
+            50% {
+                transform: translate(50px, 30px) scale(1.1) rotate(180deg);
+            }
+
+            100% {
+                transform: translate(-20px, 60px) scale(0.9) rotate(360deg);
+            }
+        }
+
+        /* Hero Section - Professional Medical Header */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: var(--white);
+            padding: 70px 20px 90px;
+            text-align: center;
+            position: relative;
+            border-bottom: 6px solid var(--accent);
+            /* Structured line instead of playful curve */
+        }
+
+        .hero-logo {
+            width: 230px;
+            height: 230px;
+            border-radius: 50%;
+            border: 4px solid var(--white);
+            box-shadow:
+                0 0 0 8px rgba(255, 255, 255, 0.2),
+                0 20px 50px rgba(0, 0, 0, 0.4),
+                inset 0 0 20px rgba(0, 0, 0, 0.2);
+            margin-bottom: 35px;
+            object-fit: cover;
+            animation: pulse-logo 4s infinite ease-in-out;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-logo:hover {
+            transform: scale(1.08) rotate(3deg);
+        }
+
+        @keyframes pulse-logo {
+
+            0%,
+            100% {
+                box-shadow:
+                    0 0 0 8px rgba(255, 255, 255, 0.2),
+                    0 20px 50px rgba(0, 0, 0, 0.4);
+            }
+
+            50% {
+                box-shadow:
+                    0 0 0 18px rgba(255, 255, 255, 0.1),
+                    0 20px 50px rgba(0, 0, 0, 0.5),
+                    0 0 35px rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        /* Footer Logo Enhance */
+        .footer-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.15), 0 10px 20px rgba(0, 0, 0, 0.3);
+            margin-bottom: 25px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-logo:hover {
+            transform: scale(1.1);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.6rem;
+            font-weight: 300;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .contact-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .contact-badge {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--white);
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .contact-badge:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-badge.fb-btn {
+            background: #1877F2;
+            border-color: #1877F2;
+        }
+
+        .contact-badge.fb-btn:hover {
+            background: #155dbd;
+            color: white;
+        }
+
+        /* Sections Structure */
+        section {
+            padding: 80px 20px;
+        }
+
+        .bg-white {
+            background-color: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .bg-light-purple {
+            background-color: rgba(243, 229, 245, 0.75);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-top: 1px solid rgba(255, 255, 255, 0.4);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .bg-dark-purple {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .bg-dark-purple .section-title h2 {
+            color: var(--accent);
+        }
+
+        .bg-dark-purple .section-title p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Detailed Phase Cards */
+        .phases-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .phase-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(106, 27, 154, 0.08);
+            border-top: 6px solid var(--secondary);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .phase-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(106, 27, 154, 0.15);
+        }
+
+        .phase-header {
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .phase-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .phase-title {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin: 0;
+        }
+
+        .phase-duration {
+            display: inline-block;
+            background: var(--light-bg);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        .phase-detail-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .phase-detail-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .phase-detail-list li::before {
+            content: '\f00c';
+            /* FontAwesome check */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Specific feature highlights */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--light-bg), white);
+            border-left: 5px solid var(--primary);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .highlight-title {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Pricing Area */
+        .pricing-section {
+            background-color: var(--light-bg);
+            /* Light purple background for contrast */
+        }
+
+        .pricing-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            flex: 1;
+            min-width: 300px;
+            max-width: 380px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            border: 1px solid rgba(106, 27, 154, 0.1);
+        }
+
+        .pricing-card.featured {
+            transform: scale(1.05);
+            border: 2px solid var(--primary);
+            box-shadow: 0 20px 50px rgba(106, 27, 154, 0.15);
+            z-index: 2;
+        }
+
+        .price-tag {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 15px 0;
+        }
+
+        .price-period {
+            font-size: 1rem;
+            color: #888;
+            font-weight: normal;
+        }
+
+        /* Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s;
+            border: 2px solid white;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Video & Team Additions */
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(106, 27, 154, 0.2);
+            border: 5px solid rgba(255, 255, 255, 0.8);
+            background: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .video-container video {
+            width: 100%;
+            display: block;
+            border-radius: 15px;
+            /* Ensures inner video also has soft edges */
+        }
+
+        .team-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .team-badge {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+            transition: transform 0.3s;
+        }
+
+        .team-badge:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-badge i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-logo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .team-badge {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <header>
-        <img src="logo.jpeg" alt="Logo Clínica Gabriel Arcángel" class="logo">
-        <h1>Recupera Tu Vida.<br>Renace con Nosotros.</h1>
-        <p><strong>Clínica Especializada Gabriel Arcángel:</strong> Donde la ciencia médica se une al trato humano para
-            una recuperación verdadera y duradera.</p>
-        <a href="tel:4425596166" class="cta-btn">Llama Ahora: 442-559-6166</a>
+    <!-- Interactive Background -->
+    <div class="interactive-bg">
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+        <div class="bg-shape shape-3"></div>
+    </div>
+
+    <!-- Floating Contact -->
+    <a href="https://wa.me/524425596166" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i> Contacto Inmediato
+    </a>
+
+    <!-- Header / Hero -->
+    <header class="hero-section">
+        <img src="logo.jpeg" alt="Logo Clínica Gabriel Arcángel" class="hero-logo">
+        <h1 class="hero-title">Hospital en Adicciones<br>El Camino a Gabriel Arcángel</h1>
+        <p class="hero-subtitle">
+            Tratamiento Residencial de Modelo Mixto (27 Semanas)<br>
+            <strong>Atención Integral, Profesional y Humana</strong><br>
+            <span style="font-size: 1.2rem; display: block; margin-top: 15px; color: var(--accent); font-weight: bold;">
+                <i class="fas fa-clock"></i> Disponibles las 24 Horas, los 365 Días del Año
+            </span>
+        </p>
+
+        <div class="contact-badges">
+            <a href="tel:4425596166" class="contact-badge"><i class="fas fa-phone-alt"></i> 442-559-6166</a>
+            <a href="tel:4421036915" class="contact-badge"><i class="fas fa-mobile-alt"></i> 442-103-6915</a>
+            <a href="https://www.facebook.com/ClinicaGabrielArcangelAC/" target="_blank" class="contact-badge fb-btn">
+                <i class="fab fa-facebook-f"></i> Facebook
+            </a>
+        </div>
     </header>
 
-    <div class="container">
-
-        <!-- Why Choose Us -->
+    <!-- Intro Section & Video -->
+    <section class="bg-white">
         <div class="section-title">
-            <h2>Por Qué Elegirnos</h2>
-            <p style="margin-top: 15px; font-size: 1.1rem; color: #666;">
-                No somos un centro más. Somos un hospital especializado en adicciones y salud emocional.
+            <h2 style="font-size: 3rem; text-transform: uppercase;">La Opción <span
+                    style="color: var(--accent); white-space: nowrap;">#1</span> en Recuperación</h2>
+            <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto; color: #555; margin-bottom: 40px;">
+                En la <strong>Clínica Hospitalizada El Camino a Gabriel Arcángel A.C.</strong>, somos reconocidos como
+                la clínica líder en rehabilitación. Entendemos que la adicción es una enfermedad compleja que requiere
+                una solución integral. Nuestro modelo de 3 pilares está diseñado para restaurar tu salud física,
+                emocional y social.
             </p>
         </div>
 
-        <div class="features-grid">
-            <div class="feature-box">
-                <div class="feature-icon">♥</div>
-                <h3>Trato Digno y Humano</h3>
-                <p>Nuestra prioridad es el respeto. Aquí cada paciente es tratado con calidez, empatía y profesionalismo
-                    absoluto.</p>
+
+        <!-- Team & Certifications -->
+        <div class="section-title" style="margin-top: 80px; margin-bottom: 20px;">
+            <h2>Atención y Seguridad de Primer Nivel</h2>
+            <p>Contamos con profesionales altamente capacitados e instalaciones verificadas.</p>
+        </div>
+        <div class="team-badges">
+            <div class="team-badge">
+                <i class="fas fa-user-md"></i> Médico General
             </div>
-            <div class="feature-box">
-                <div class="feature-icon">🔬</div>
-                <h3>Tecnología Avanzada</h3>
-                <p>Únicos con Estimulación Magnética Transcraneal (rTMS) para tratar la adicción desde la raíz
-                    neurológica.</p>
+            <div class="team-badge">
+                <i class="fas fa-brain"></i> Equipo de Psicólogos
             </div>
-            <div class="feature-box">
-                <div class="feature-icon">👨⚕️</div>
-                <h3>Staff Médico 24/7</h3>
-                <p>Atención especializada, médica y de enfermería continua para garantizar la seguridad en todo momento.
-                </p>
+            <div class="team-badge">
+                <i class="fas fa-user-nurse"></i> Enfermería 24/7
             </div>
         </div>
+    </section>
 
-        <!-- Phases -->
+    <!-- Detailed Phases Section -->
+    <section class="bg-light-purple">
         <div class="section-title">
-            <h2>Modelo de 3 Etapas (27 Semanas)</h2>
+            <h2>Tratamiento Especializado de 3 Fases</h2>
+            <p>Un recorrido estructurado de 27 semanas hacia la libertad.</p>
         </div>
 
-        <div class="phases-grid">
+        <div class="phases-container">
             <!-- Phase 1 -->
             <div class="phase-card">
-                <span class="phase-icon">🏥</span>
-                <h3 class="phase-title">1. Desintoxicación</h3>
-                <div style="text-align: center;"><span class="phase-duration">Meses 1-2</span></div>
-                <div class="phase-intro">"Limpia tu cuerpo, aclara tu mente."</div>
-                <p style="color: #555;">Recuperación física intensiva en un entorno hospitalario seguro.</p>
-                <ul class="phase-list">
-                    <li><strong>Desintoxicación Médica:</strong> Eliminación segura de sustancias.</li>
-                    <li><strong>Nutrición Premium:</strong> Dieta balanceada y personalizada.</li>
-                    <li><strong>Terapias Físicas:</strong> Rutinas, Sauna, Spinning y Detox Iónico.</li>
-                    <li><strong>Monitoreo Crítico:</strong> Enfermería 24/7 las primeras 72 horas.</li>
+                <img src="foto1.jpg" alt="Foto Fase 1"
+                    style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); border: 2px solid var(--primary-light);">
+                <div class="phase-header">
+                    <i class="fas fa-heartbeat phase-icon"></i>
+                    <h3 class="phase-title">Fase 1: Desintoxicación</h3>
+                    <span class="phase-duration">Meses 1-2 (Inicial)</span>
+                </div>
+                <p>Enfoque total en la recuperación física y estabilización orgánica del paciente en un entorno seguro.
+                </p>
+                <ul class="phase-detail-list">
+                    <li><strong>Atención Médica Inmediata:</strong> Supervisión constante para superar el síndrome de
+                        abstinencia de forma segura y sin dolor.</li>
+                    <li><strong>Nutrición y Salud Integral:</strong> Dieta balanceada 🍽 y fortalecimiento físico
+                        (Spinning 🚴‍♂️ y Sauna ☁) para desintoxicar el cuerpo rápidamente.</li>
+                    <li><strong>Terapias de Relajación:</strong> Regulación del sueño y tranquilidad emocional en un
+                        ambiente seguro y de respeto.</li>
+                    <li><strong>Vigilancia 24/7:</strong> Enfermería y cuidados continuos a toda hora, especialmente los
+                        primeros días, cuidando tu bienestar al máximo.</li>
                 </ul>
             </div>
 
             <!-- Phase 2 -->
             <div class="phase-card">
-                <span class="phase-icon">🧠</span>
-                <h3 class="phase-title">2. Transformación</h3>
-                <div style="text-align: center;"><span class="phase-duration">Meses 3-4</span></div>
-                <div class="phase-intro">"Sana tus emociones, rompe el ciclo."</div>
-                <p style="color: #555;">Trabajo profundo en las causas emocionales y psicológicas.</p>
-                <ul class="phase-list">
-                    <li><strong>Terapia Multidisciplinaria:</strong> Individual, Grupal y Familiar.</li>
-                    <li><strong>Tecnología rTMS:</strong> Tratamiento neurológico para ansiedad y craving.</li>
-                    <li><strong>Regulación Emocional:</strong> Aprende a vivir sin depender de sustancias.</li>
-                    <li><strong>Acompañamiento Constante:</strong> Psicólogos y consejeros expertos.</li>
+                <img src="foto2.jpg" alt="Foto Fase 2"
+                    style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); border: 2px solid var(--primary-light);">
+                <div class="phase-header">
+                    <i class="fas fa-brain phase-icon"></i>
+                    <h3 class="phase-title">Fase 2: Deshabituación</h3>
+                    <span class="phase-duration">Meses 3-4 (Intermedio)</span>
+                </div>
+                <p>Modificación profunda de conductas aprendidas y sanación emocional para prevenir recaídas.</p>
+                <ul class="phase-detail-list">
+                    <li><strong>Atención Psicológica Personal:</strong> Sesiones individuales para sanar emociones,
+                        controlar la ansiedad y superar viejos patrones.</li>
+                    <li><strong>Sanación Familiar:</strong> Terapias participativas diseñadas para restaurar los
+                        vínculos de confianza y amor en tu familia 👨‍👩‍👧‍👦.</li>
+                    <li><strong>Prevención de Recaídas:</strong> Herramientas sumamente prácticas para enfrentar
+                        momentos difíciles con seguridad y control personal.</li>
+                    <li>
+                        <div class="highlight-box">
+                            <span class="highlight-title">🔬 Tecnología de Alta Efectividad</span>
+                            Equipos médicos de última generación que, de forma no invasiva, ayudan a eliminar
+                            rápidamente la ansiedad y el deseo de consumir, mejorando tu estado de ánimo general.
+                        </div>
+                    </li>
                 </ul>
             </div>
 
             <!-- Phase 3 -->
             <div class="phase-card">
-                <span class="phase-icon">🚀</span>
-                <h3 class="phase-title">3. Reinserción</h3>
-                <div style="text-align: center;"><span class="phase-duration">Meses 5-6</span></div>
-                <div class="phase-intro">"Vuelve al mundo con propósito."</div>
-                <p style="color: #555;">Desarrollo de habilidades reales para una vida productiva.</p>
-                <ul class="phase-list">
-                    <li><strong>Talleres Productivos:</strong> Panadería, Pizzería, Bordado.</li>
-                    <li><strong>Habilidades Digitales:</strong> Marketing, Diseño y Emprendimiento.</li>
-                    <li><strong>Imagen Personal:</strong> Podología y cortes de cabello.</li>
-                    <li><strong>Integración Social:</strong> Actividades recreativas y de convivencia.</li>
+                <img src="foto3.jpg" alt="Foto Fase 3"
+                    style="width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); border: 2px solid var(--primary-light);">
+                <div class="phase-header">
+                    <i class="fas fa-rocket phase-icon"></i>
+                    <h3 class="phase-title">Fase 3: Reinserción</h3>
+                    <span class="phase-duration">Meses 5-6 (Final)</span>
+                </div>
+                <p>Desarrollo de habilidades para una integración exitosa a la sociedad y el mercado laboral.</p>
+                <ul class="phase-detail-list">
+                    <li><strong>Nuevo Proyecto de Vida:</strong> Construcción de metas claras con apoyo de expertos,
+                        dejándote listo para una nueva vida en libertad.</li>
+                    <li><strong>Capacitación Práctica y Oficios:</strong> Aprende de manera profesional Panadería 🍞,
+                        Pizzería y Bordado Textil 🧵 para impulsar tu independencia.</li>
+                    <li><strong>Habilidades Modernas y Digitales:</strong> Cursos de Marketing Digital 📈 y
+                        Emprendimiento creando oportunidades reales de éxito laboral.</li>
+                    <li><strong>Renovación de Autoestima:</strong> Cuidado y mejora de imagen personal con servicios de
+                        podología especializada 👣 y barbería/estilismo ✂.</li>
                 </ul>
             </div>
         </div>
+    </section>
 
-        <!-- Tech Highlight -->
-        <div class="tech-highlight">
-            <span class="tech-badge">Innovación Exclusiva</span>
-            <h3 style="font-size: 1.8rem; color: var(--primary); margin-bottom: 15px;">Estimulación Magnética
-                Transcraneal (rTMS)</h3>
-            <p style="font-size: 1.1rem; color: #555; max-width: 700px; margin: 0 auto;">
-                Contamos con tecnología de vanguardia no invasiva que ha revolucionado el tratamiento de adicciones y
-                depresión.
-                <br><strong>Sin dolor. Sin cirugía. Resultados comprobados.</strong>
-            </p>
-        </div>
+    <!-- Pricing Section -->
+    <section class="bg-white">
+        <div class="section-title" style="margin-bottom: 40px;">
+            <h2>Inversión Clara y Transparente</h2>
+            <p>Sin costos ocultos. Tu salud es nuestra prioridad.</p>
+            <div
+                style="display: flex; justify-content: center; align-items: stretch; gap: 30px; flex-wrap: wrap; margin-top: 30px;">
+                <!-- Conasama Document -->
+                <object data="conasama.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="350"
+                    height="480"
+                    style="border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); border: 2px solid var(--primary-light);">
+                    Tu navegador no soporta la visualización de PDF. <a href="conasama.pdf">Descargar documento
+                        CONASAMA</a>
+                </object>
 
-
-        <!-- Pricing -->
-        <div id="precios" class="section-title">
-            <h2>Nuestra Propuesta de Valor</h2>
-            <p>Invierte en salud, tranquilidad y futuro.</p>
-        </div>
-
-        <div class="pricing-container">
-            <!-- Entry Cost -->
-            <div class="pricing-card highlight">
-                <div class="best-value">PRIMER PASO</div>
-                <div class="price-header">
-                    <h3>Membresía de Ingreso</h3>
+                <!-- Presentation Video -->
+                <div class="video-container"
+                    style="max-width: 400px; margin: 0; box-shadow: 0 5px 15px rgba(0,0,0,0.2); border-width: 2px;">
+                    <video controls poster="logo.jpeg">
+                        <source src="video_arcangel.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video. Por favor, actualiza tu navegador.
+                    </video>
                 </div>
-                <div class="price-amount">$6,600</div>
-                <p class="price-note">Plazo de 7 a 10 días para cubrir tras ingreso</p>
-                <ul class="price-features">
-                    <li>Valoración Médica Inicial Completa</li>
+            </div>
+        </div>
+
+        <div class="pricing-grid">
+            <!-- Entry -->
+            <div class="pricing-card featured">
+                <div
+                    style="background: var(--accent); color: var(--text-dark); display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; margin-bottom: 15px;">
+                    PRIMER PASO</div>
+                <h3>Membresía de Ingreso</h3>
+                <div class="price-tag">$6,600 <span class="price-period">MXN</span></div>
+                <p style="color: #666; font-size: 0.9rem;">(Plazo de 7 a 10 días para cubrirla tras ingreso inmediato)
+                </p>
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+                <ul class="phase-detail-list" style="text-align: left;">
+                    <li>Primera Consulta Médica</li>
                     <li>Plan de Tratamiento Personalizado</li>
-                    <li>Batería de Tamizajes (Ansiedad, Psicosis)</li>
+                    <li>Revisión Física Exhaustiva</li>
+                    <li>Batería de Tamizajes (Ansiedad, Depresión)</li>
                     <li>Prueba Antidoping de Laboratorio</li>
-                    <li>Cuidados Intensivos 72h (Enfermería)</li>
+                    <li><strong>Cuidados Intensivos 72h (Enfermería)</strong></li>
                 </ul>
             </div>
 
-            <!-- Recurring Costs -->
+            <!-- Recurring -->
             <div class="pricing-card">
-                <div class="price-header">
-                    <h3>Inversión Semanal</h3>
-                </div>
-                <div class="price-amount">$1,500<span class="price-sub"> MXN</span></div>
-                <p style="color: #666; margin-bottom: 20px;">Incluye $600 de <span
-                        style="color: var(--secondary); font-weight: bold;">Despensa Semanal</span></p>
+                <h3>Costo Semanal</h3>
+                <div class="price-tag">$1,500</div>
+                <p style="font-size: 0.95rem; margin-top: 10px;">
+                    <span style="color: var(--primary); font-weight: bold;">Costo aparte:</span> $600 para despensa.<br>
+                    <span style="color: #d32f2f; font-weight: bold; font-size: 0.85rem;">*El consumo en cafetería tiene
+                        un costo extra.</span>
+                </p>
 
+                <div style="margin-top: 30px; padding-top: 30px; border-top: 1px dashed #ccc;">
+                    <h3>Intervencionista</h3>
+                    <div class="price-tag" style="font-size: 2.2rem;">$1,000</div>
+                    <p class="price-period">Pago Mensual</p>
+                    <p style="font-size: 0.9rem; color: #666;">Acompañamiento profesional continuo</p>
+                </div>
+            </div>
+
+            <!-- Premium Services -->
+            <div class="pricing-card">
+                <h3>Servicios Adicionales</h3>
+                <p>Opciones para potenciar tu recuperación</p>
                 <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
 
-                <div class="price-header">
-                    <h3>Intervencionista</h3>
+                <div style="text-align: left; margin-bottom: 20px;">
+                    <div class="highlight-title">Estimulación Magnética (rTMS)</div>
+                    <div style="font-size: 1.8rem; font-weight: 800; color: var(--primary);">$1,000 <span
+                            class="price-period">/ sesión</span></div>
+                    <p style="font-size: 0.9rem;">Tecnología avanzada para salud mental.</p>
                 </div>
-                <div class="price-amount" style="font-size: 2rem;">$1,000<span class="price-sub"> / mes</span></div>
-                <p class="price-note">Acompañamiento especializado</p>
-            </div>
 
-            <!-- Extras -->
-            <div class="pricing-card">
-                <div class="price-header">
-                    <h3>Servicios Premium</h3>
+                <div style="text-align: left;">
+                    <div class="highlight-title">Atención Dental Integral</div>
+                    <div style="font-size: 1.8rem; font-weight: 800; color: var(--primary);">$1,100 <span
+                            class="price-period">/ servicio</span></div>
+                    <p style="font-size: 0.9rem;">Cuidado completo de salud bucal.</p>
                 </div>
-                <ul class="price-features" style="border: none; margin-top: 10px;">
-                    <li style="display: block; text-align: center;">
-                        <span style="display: block; font-weight: bold; margin-bottom: 5px;">Sesión rTMS</span>
-                        <span style="color: var(--primary); font-size: 1.8rem; font-weight: 800;">$1,000</span>
-                        <span style="display: block; font-size: 0.8rem; color: #888;">Por sesión</span>
-                    </li>
-                    <li style="display: block; text-align: center; border: none;">
-                        <span style="display: block; font-weight: bold; margin-bottom: 5px;">Atención Dental</span>
-                        <span style="color: var(--primary); font-size: 1.8rem; font-weight: 800;">$1,100</span>
-                        <span style="display: block; font-size: 0.8rem; color: #888;">Servicio completo</span>
-                    </li>
-                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer class="hero-section" style="padding-bottom: 60px; clip-path: none; margin-top: 0;">
+        <img src="logo.jpeg" alt="Logo Clínica Gabriel Arcángel" class="footer-logo">
+
+        <h2 style="margin-bottom: 10px;">¡No esperes más!</h2>
+        <p style="font-size: 1.3rem; margin-bottom: 30px;">La vida que mereces está a una llamada de distancia.</p>
+
+        <p style="font-size: 1.1rem; color: var(--accent); font-weight: bold; margin-bottom: 20px;">
+            <i class="fas fa-calendar-check"></i> Atención las 24 horas, toda la semana.
+        </p>
+
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+            <a href="tel:4425596166" style="color: white; font-size: 2.5rem; font-weight: 800; text-decoration: none;">
+                442-559-6166
+            </a>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+                <a href="tel:4421036915"
+                    style="background: white; color: var(--primary); padding: 10px 25px; border-radius: 30px; text-decoration: none; font-weight: bold;">
+                    <i class="fas fa-mobile-alt"></i> 442-103-6915
+                </a>
+                <a href="https://www.facebook.com/ClinicaGabrielArcangelAC/" target="_blank"
+                    style="background: #1877F2; color: white; padding: 10px 25px; border-radius: 30px; text-decoration: none; font-weight: bold;">
+                    <i class="fab fa-facebook-f"></i> Síguenos
+                </a>
             </div>
         </div>
 
+        <p style="margin-top: 50px; font-size: 0.9rem; opacity: 0.6;">
+            &copy; 2026 Clínica Hospitalizada El Camino a Gabriel Arcángel A.C. <br>
+            Todos los derechos reservados.-
+        </p>
+    </footer>
+
+    <!-- Welcome Modal -->
+    <div id="welcomeModal"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0,0,0,0.6); z-index: 9999; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.5s ease;">
+        <div style="background: white; padding: 40px; border-radius: 15px; text-align: center; max-width: 500px; width: 90%; box-shadow: 0 15px 35px rgba(0,0,0,0.2); border-top: 8px solid var(--primary); position: relative; transform: translateY(-20px); transition: transform 0.5s ease;"
+            id="modalContent">
+            <h2 style="color: var(--primary-dark); font-size: 2rem; margin-bottom: 15px;">¡Bienvenido a Tu Nueva Vida!
+            </h2>
+            <p style="font-size: 1.2rem; color: #555; line-height: 1.6; font-style: italic;">"El primer paso no te lleva
+                a donde quieres ir, pero te saca de donde estás. Hoy es el día perfecto para comenzar de nuevo."</p>
+            <button onclick="closeModal()"
+                style="margin-top: 25px; background: var(--primary); color: white; border: none; padding: 12px 30px; font-size: 1.1rem; border-radius: 30px; cursor: pointer; font-weight: bold; box-shadow: 0 5px 15px rgba(106, 27, 154, 0.3); transition: transform 0.3s; width: 100%;">Comenzar
+                mi recuperación</button>
+        </div>
     </div>
 
-    <!-- Contact Strip -->
-    <div id="contacto" class="contact-strip">
-        <h3>Tu Una Nueva Oportunidad de Vida</h3>
-        <p class="contact-sub">Comunícate hoy mismo y comienza el cambio.</p>
-        <div style="margin-top: 30px;">
-            <a href="tel:4425596166" class="cta-btn"
-                style="background: white; color: var(--primary); font-size: 1.5rem;">📞 442-559-6166</a>
-        </div>
-        <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.7;">Clínica Especializada Gabriel Arcángel A.C.</p>
-    </div>
+    <script>
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                const modal = document.getElementById('welcomeModal');
+                const content = document.getElementById('modalContent');
+                modal.style.display = 'flex';
+                // Trigger reflow
+                modal.offsetHeight;
+                modal.style.opacity = '1';
+                content.style.transform = 'translateY(0)';
+            }, 800);
+        });
+
+        function closeModal() {
+            const modal = document.getElementById('welcomeModal');
+            const content = document.getElementById('modalContent');
+            modal.style.opacity = '0';
+            content.style.transform = 'translateY(-20px)';
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 500);
+        }
+    </script>
 
 </body>
 
